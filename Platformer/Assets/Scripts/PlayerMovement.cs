@@ -24,12 +24,12 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     private bool airControl;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         facingRight = true;
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-	}
+    }
 
     // Update is called once per frame
     private void Update()
@@ -37,8 +37,9 @@ public class PlayerMovement : MonoBehaviour {
         HandleInput();
     }
 
-    void FixedUpdate () {
+    void FixedUpdate() {
         float horizontal = Input.GetAxis("Horizontal");
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         isGrounded = IsGrounded();
         HandleMovement(horizontal);
         Flip(horizontal);
@@ -49,7 +50,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void HandleMovement(float horizontal)
     {
-        Debug.Log(myRigidbody.velocity.y);
+        //Debug.Log(myRigidbody.velocity.y);
         if (IsGrounded() == false && myRigidbody.velocity.y < 0) {
             myAnimator.SetBool("land", true);
         }
@@ -121,5 +122,25 @@ public class PlayerMovement : MonoBehaviour {
         else
             myAnimator.SetLayerWeight(1, 0);
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            collision.GetComponent<Animator>().Play("SnakeDie");
+            collision.GetComponent<EnemyMove>().speed = 0;
+            //collision.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            //if (collision.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("SnakeDie"))
+            collision.transform.gameObject.SetActive(false);
+            //Destroy(collision);
+        }
+        if (collision.gameObject.CompareTag("winning"))
+        {
+            Debug.Log("ewr");
+        }
+    }
+
+    private IEnumerator wait(float delay) {
+        yield return new WaitForSeconds(delay);
     }
 }
