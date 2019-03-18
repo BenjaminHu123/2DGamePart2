@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyMove : MonoBehaviour {
 
@@ -40,5 +41,12 @@ public class EnemyMove : MonoBehaviour {
         myBody.velocity = myVel;
 
 	}
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetType() == typeof(BoxCollider2D) && 
+            collision.gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
 }

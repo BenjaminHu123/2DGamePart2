@@ -533,8 +533,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
-  jumpForce: 4500
-  airControl: 0
+  jumpForce: 6500
+  airControl: 1
 --- !u!70 &473096182
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -679,7 +679,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 772771011}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.008, y: -0.1, z: -0.2326661}
+  m_LocalPosition: {x: 0.0165, y: -0.15, z: -0.2326661}
   m_LocalScale: {x: 0.02, y: 0.02, z: 1}
   m_Children: []
   m_Father: {fileID: 473096180}
@@ -707,7 +707,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 794366786}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.066, y: -0.1, z: -0.2326661}
+  m_LocalPosition: {x: 0.0611, y: -0.1493, z: -0.2326661}
   m_LocalScale: {x: 0.02, y: 0.02, z: 1}
   m_Children: []
   m_Father: {fileID: 473096180}
@@ -3383,7 +3383,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1574478855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.067, y: -0.1, z: -0.2326661}
+  m_LocalPosition: {x: -0.067, y: -0.15, z: -0.2326661}
   m_LocalScale: {x: 0.02, y: 0.02, z: 1}
   m_Children: []
   m_Father: {fileID: 473096180}
